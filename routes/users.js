@@ -1,4 +1,5 @@
 const auth = require('../middlewares/auth');
+const admin = require('../middlewares/admin');
 const { User, validate } = require('../models/user');
 const mongoose = require('mongoose');
 const express = require('express');
@@ -14,7 +15,7 @@ router.get('/me', auth, async (req, res) => {
     res.send(user);
 });
 
-router.get('/', auth, async (req, res) => {
+router.get('/', [auth, admin], async (req, res) => {
     const users = await User.find().select('-password').sort('name');
     res.send(users);
 });
