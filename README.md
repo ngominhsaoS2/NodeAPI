@@ -1,2 +1,2 @@
 # NodeAPI
-An restfull api written by SaoNM using Express, MongoDB
+A restfull api written by SaoNM using Express, MongoDB
